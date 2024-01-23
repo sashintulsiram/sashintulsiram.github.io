@@ -12,22 +12,26 @@
         <!-- End Google Tag Manager -->        
 
         <script>
-            //const queryString = window.location.search;
-            //const urlParams = new URLSearchParams(queryString);
-            //const page_type = urlParams.get('page_type')        
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const page_type = urlParams.get('page_type')        
             //console.log(page_type);
 
             const key = urlParams.get('key')
             console.log(key);
             const value = urlParams.get('value')
             console.log(value);    
+            var key_var = key
+            var value_var = key            
+            document.getElementById("myKey").innerHTML = key_var;
+            document.getElementById("myValue").innerHTML = value_var;                        
         </script>
 
         <script>
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-             'key': key,
-             'value': value
+             'key': <p id="myKey"></p>,
+             'value': <p id="myKey"></p>
             });
         </script>
         <title>Sashin Tulsiram - Technical Challenge</title>
