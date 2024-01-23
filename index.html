@@ -97,8 +97,41 @@
                         console.log(value_dataLayer)
                         document.getElementById('key_dataLayer').innerHTML = key_dataLayer
                         document.getElementById('value_dataLayer').innerHTML = value_dataLayer
-                    })
+                        
+                        const apiUrl = 'https://httpbin.org/get?key=key_dataLayer&value=value_dataLayer';
+
+                        //fetch(apiUrl)
+                        fetch(apiUrl, {
+                            method: 'GET',
+                            body: JSON.stringify({
+                                key: key_dataLayer,
+                                value: value_dataLayer  
+                            }) 
+                        })                        
+                        .then(response => {
+                            if (!response.ok) {
+                            if (response.status === 404) {
+                                throw new Error('Data not found');
+                            } else if (response.status === 500) {
+                                throw new Error('Server error');
+                            } else {
+                                throw new Error('Network response was not ok');
+                            }
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            outputElement.textContent = JSON.stringify(data, null, 2);
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        
+                    })});
                 </script>
+
+
+
+
 
                 <button type="button" onclick="alert('API Response Logged in Console!')">Send API Request!</button>
             </div>        
