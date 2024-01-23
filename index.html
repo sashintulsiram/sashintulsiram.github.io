@@ -84,7 +84,7 @@
         <h3>3. API Implementation</h3>
             <div>
                 <script>
-                    window.dataLayer || [];
+                    //window.dataLayer || [];
                     window.dataLayer.push(function() {
                         const key_dataLayer = this.get('key');
                         const value_dataLayer = this.get('value');
@@ -95,9 +95,9 @@
                         }
                         console.log(key_dataLayer)
                         console.log(value_dataLayer)
+                        document.getElementById('key_dataLayer').innerHTML = key_dataLayer
+                        document.getElementById('value_dataLayer').innerHTML = value_dataLayer
                     })
-                    document.getElementById('key_dataLayer').innerHTML = key_dataLayer
-                    document.getElementById('value_dataLayer').innerHTML = value_dataLayer
                 </script>
 
                 <button type="button" onclick="alert('API Response Logged in Console!')">Send API Request!</button>
