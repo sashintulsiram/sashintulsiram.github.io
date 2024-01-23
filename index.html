@@ -84,55 +84,40 @@
         <h3>3. API Implementation</h3>
             <div>
                 <script>
-                    //window.dataLayer || [];
                     window.dataLayer.push(function() {
                         const key_dataLayer = this.get('key');
                         const value_dataLayer = this.get('value');
-                        if (key_dataLayer !== null) {
-                        // Change behavior based on whether or not this value exists...
+
+                        const params = new URLSearchParams({
+                            key: key_dataLayer,
+                            value: value_dataLayer
+                    })
+                    console.log(key_dataLayer)
+                    console.log(value_dataLayer)                    
+                    
+                    const request = ( url, params = {}, method = 'GET' ) => {
+                        let options = {
+                            method
+                        };
+                        if ( 'GET' === method ) {
+                            url += '?' + ( new URLSearchParams( params ) ).toString();
                         } else {
-                        // ...
+                            options.body = JSON.stringify( params );
                         }
-                        console.log(key_dataLayer)
-                        console.log(value_dataLayer)
-                        document.getElementById('key_dataLayer').innerHTML = key_dataLayer
-                        document.getElementById('value_dataLayer').innerHTML = value_dataLayer
                         
-                        const apiUrl = 'https://httpbin.org/get';
+                        return fetch( url, options ).then( response => response.json() );
+                    };
+                    const get = ( url, params ) => request( url, params, 'GET' );
 
-                        //fetch(apiUrl)
-                        fetch(apiUrl, {
-                            method: 'GET',
-                            body: JSON.stringify({
-                                key: key_dataLayer,
-                                value: value_dataLayer  
-                            }) 
-                        })                        
-                        .then(response => {
-                            if (!response.ok) {
-                            if (response.status === 404) {
-                                throw new Error('Data not found');
-                            } else if (response.status === 500) {
-                                throw new Error('Server error');
-                            } else {
-                                throw new Error('Network response was not ok');
-                            }
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log(data)
-                            //outputElement.textContent = JSON.stringify(data, null, 2);
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        
-                    })});
+                    get( 'https://httpbin.org/get', params )
+                    .then( response => {
+                        console.log(response)
+                        // Do something with response.
+                    } );               
+
+                })
+
                 </script>
-
-
-
-
 
                 <button type="button" onclick="alert('API Response Logged in Console!')">Send API Request!</button>
             </div>        
