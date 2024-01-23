@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
         <!-- Google Tag Manager -->
         <script>
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -14,15 +15,15 @@
         <script>
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            const page_type = urlParams.get('page_type')        
+            const page_url = urlParams.get('page_url')        
             //console.log(page_type);
 
             const key = urlParams.get('key')
-            console.log(key);
+            //console.log(key);
             const value = urlParams.get('value')
-            console.log(value);    
+            //console.log(value);    
             var key_var = key
-            var value_var = value_var                      
+            var value_var = value                     
         </script>
 
         <script>
@@ -32,8 +33,10 @@
              'value': value_var
             });
         </script>
+
         <title>Sashin Tulsiram - Technical Challenge</title>
     </head>
+
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript>
