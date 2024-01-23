@@ -83,6 +83,20 @@
 
         <h3>3. API Implementation</h3>
             <div>
+                <script>
+                    window.dataLayer.push(function() {
+                        const key_dataLayer = this.get('key');
+                        if (key_dataLayer !== null) {
+                        // Change behavior based on whether or not this value exists...
+                        } else {
+                        // ...
+                        }
+                    })
+                    console.log(key_dataLayer)            
+                </script>
+
+
+
                 <button type="button" onclick="alert('API Response Logged in Console!')">Send API Request!</button>
             </div>        
     </body>
