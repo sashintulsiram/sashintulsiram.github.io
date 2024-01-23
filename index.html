@@ -10,18 +10,25 @@
             })(window,document,'script','dataLayer','GTM-TV43V3SG');
         </script>
         <!-- End Google Tag Manager -->        
+
+        <script>
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const page_type = urlParams.get('page_type')        
+            console.log(page_type);
+
+            const key = urlParams.get('key')
+            console.log(key);
+            const value = urlParams.get('value')
+            console.log(value);    
+        </script>
+        
         <script>
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
              'key': '',
              'value': ''
             });
-        </script>
-        <script>
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const page_type = urlParams.get('page_type')
-            console.log(page_type);
         </script>
         <title>Sashin Tulsiram - Technical Challenge</title>
     </head>
