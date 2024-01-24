@@ -4,11 +4,7 @@
         <meta charset="UTF-8">        
         <!-- Google Tag Manager -->
         <script>
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TV43V3SG');
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TV43V3SG');
         </script>      
 
         <!-- Script that queries and stores the URL. Uses SearchParams reads and decode the URL to create objects (URL, parameters) -->
@@ -18,16 +14,14 @@
             const page_url = urlParams.get('page_url')
             const key_var = urlParams.get('key')
             const value_var = urlParams.get('value')
-            //let key_var = key
-            //let value_var = value                     
         </script>
 
         <!-- Script that push Query String Parameters to GTM Data Layer -->
         <script>
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-             'key': key_var,
-             'value': value_var
+                'key': key_var,
+                'value': value_var
             });
         </script>
 
@@ -38,8 +32,7 @@
     <body>
         <!-- Google Tag Manager (noscript) -->
         <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TV43V3SG"
-            height="0" width="0" style="display:none;visibility:hidden">
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TV43V3SG" height="0" width="0" style="display:none;visibility:hidden">
             </iframe>
         </noscript>
 
@@ -90,7 +83,7 @@
                             const params = new URLSearchParams({
                                 key: key_dataLayer,
                                 value: value_dataLayer
-                        })                  
+                        });                  
                         
                         const request = ( url, params = {}, method = 'GET' ) => {
                             let options = {method};
@@ -110,7 +103,7 @@
                         })
                         .catch(error => {
                             console.error(error)
-                        });                    
+                        });
                         })
                     }
                 </script>
