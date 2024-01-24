@@ -15,13 +15,9 @@
         <script>
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
-            const page_url = urlParams.get('page_url')        
-            //console.log(page_type);
-
+            const page_url = urlParams.get('page_url')
             const key = urlParams.get('key')
-            //console.log(key);
             const value = urlParams.get('value')
-            //console.log(value);    
             let key_var = key
             let value_var = value                     
         </script>
@@ -33,8 +29,6 @@
              'value': value_var
             });
         </script>
-        
-
 
 
         <title>Sashin Tulsiram - Technical Challenge</title>
@@ -84,42 +78,43 @@
         <h3>3. API Implementation</h3>
             <div>
                 <script>
-                    window.dataLayer.push(function() {
-                        const key_dataLayer = this.get('key');
-                        const value_dataLayer = this.get('value');
+                    function getData(){
+                        window.dataLayer.push(function() {
+                            const key_dataLayer = this.get('key');
+                            const value_dataLayer = this.get('value');
 
-                        const params = new URLSearchParams({
-                            key: key_dataLayer,
-                            value: value_dataLayer
-                    })
-                    console.log(key_dataLayer)
-                    console.log(value_dataLayer)                    
-                    
-                    const request = ( url, params = {}, method = 'GET' ) => {
-                        let options = {
-                            method
-                        };
-                        if ( 'GET' === method ) {
-                            url += '?' + ( new URLSearchParams( params ) ).toString();
-                        } else {
-                            options.body = JSON.stringify( params );
-                        }
+                            const params = new URLSearchParams({
+                                key: key_dataLayer,
+                                value: value_dataLayer
+                        })                  
                         
-                        return fetch( url, options ).then( response => response.json() );
-                    };
-                    const get = ( url, params ) => request( url, params, 'GET' );
+                        const request = ( url, params = {}, method = 'GET' ) => {
+                            let options = {
+                                method
+                            };
+                            if ( 'GET' === method ) {
+                                url += '?' + ( new URLSearchParams( params ) ).toString();
+                            } 
+                            else {
+                                options.body = JSON.stringify( params );
+                            }
+                            return fetch( url, options ).then( response => response.json() );
+                        };
 
-                    get( 'https://httpbin.org/get', params )
-                    .then( response => {
-                        console.log(response)
-                        // Do something with response.
-                    } );               
+                        const get = ( url, params ) => request( url, params, 'GET' );
 
-                })
-
+                        get( 'https://httpbin.org/get', params )
+                        .then(response => {
+                            console.log(response)
+                        })
+                        .catch(error => {
+                            console.error(error)
+                        });                    
+                        })
+                    }
                 </script>
 
-                <button type="button" onclick="alert('API Response Logged in Console!')">Send API Request!</button>
+                <button type="button" onclick=getData()>Send API Request!</button>
             </div>        
     </body>
 </html>
