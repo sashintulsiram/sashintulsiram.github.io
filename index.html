@@ -45,8 +45,8 @@
 
         <h3>1. Google Tag Manager and Query String Parameters</h3>
             <ul>
-                <li>The Google Tag Manager code snippet required for the integration was added to the source code.</li> 
-                <li>A JavaScript client-side script was created to dynamically assign the inputted key and value pair into their own separate variables (key, value).</li>
+                <li>The Google Tag Manager code required for the integration was added to the source code.</li> 
+                <li>A JavaScript client-side script was created to read the entered URL and dynamically assign the inputted key value data into their own separate variables. This function uses URLSearchParams to read and decode the URL to create the key and value variables.</li>
                 <li>A JavaScript client-side script was created to push the key and value variable data to Googles Tag Managers Data Layer.</li>
                 <li>Google Tag Manager was successfully implemented and tested. The applications functionality to push data to the GTM data layer was also tested successfully.</li>
             </ul>        
@@ -56,12 +56,12 @@
             <div>
                 <ol>
                     <li>A JavaScript client-side script was created which references the DOM and returns two variables for the key and value as string data.</li>
-                    <li>To test if Query String Parameters are hardcoded, change the key value pair within the URL and press Enter. Confirm the following key value pair was successfully updated by referencing the below data for the inputted key and value:</li>
+                    <li>For testing purposes, follow these steps to check if key and pairs are not hardcoded. To assess if Query String Parameters are hardcoded, change the key value pair within the URL and press Enter. Confirm the following key value pair was successfully updated by referencing the below data for the inputted key and value:</li>
                         <ul>
-                            <li>Key: <p id="key_id"></p></li>
-                            <li>Value: <p id="value_id"></p></li>
+                            <li>Key: <b id="key_id"></b></li>
+                            <li>Value: <b id="value_id"></b></li>
                         </ul>
-                    <li>This test ensures that key and value pairs aren't hardcoded and will update automatically according to the URL parameters specified. This test was completed successfully.</li>
+                    <li>his test ensures that key and value pairs are not hardcoded and will update automatically according to the URL parameters specified. This test was completed successfully.</li>
                 </ol>
 
                 <!-- Script that references the DOM and returns Query String Parameter (key, value) -->
@@ -74,6 +74,13 @@
         <!-- When a user clicks the button, an onclick event is triggered which executes a function - a JavaScript function pulls Query String Parameters from the GTM Data Layer, stores these parameters into variables, Uses SearchParams encode the URL with the provided URL & parameters, send an API GET request using the constructed string, and prints the response to the console -->
         <h3>3. API Implementation</h3>
             <div>
+                <ul>
+                    <li>A button called “Send API Request” was added to the page which send a GET API request to http://httpbin.org/get. The following steps illustrate what happens when you interact with the button:</li>
+                    <ul>
+                        <li>When a user clicks on the button, an onclick event is triggered.</li>
+                        <li>A JavaScript function is triggered which was created to pull the key and value data stored in GTMs data layer and stores this data into two separate variables. The function then uses URLSearchParams constructs a GET API request using the variable data and provided API endpoint. Data from this API response is formatted in JSON and is logged in the console.</li>
+                    </ul>
+                </ul>
                 <script>
                     function getData(){
                         window.dataLayer.push(function() {
