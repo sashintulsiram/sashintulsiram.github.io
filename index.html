@@ -51,12 +51,12 @@
         </ol>
 
         <h3>1. Google Tag Manager and Query String Parameters</h3>
-            <ul>
+            <ol>
                 <li>The Google Tag Manager code snippet required for the integration was added to the source code.</li> 
                 <li>A JavaScript client-side script was created to dynamically assign the inputted key and value pair into their own separate variables (key, value).</li>
                 <li>A JavaScript client-side script was created to push the key and value variable data to Googles Tag Managers Data Layer.</li>
                 <li>Google Tag Manager was successfully implemented and tested. The applications functionality to push data to the GTM data layer was also tested successfully.</li>
-            </ul>        
+            </ol>        
 
         <!-- Displays the entered Query String Parameters from the URL -->            
         <h3>2. Testing of Other Query String Parameters</h3>
@@ -64,10 +64,10 @@
                 <ol>
                     <li>A JavaScript client-side script was created which references the DOM and returns two variables for the key and value as string data.</li>
                     <li>To test if Query String Parameters are hardcoded, change the key value pair within the URL and press Enter. Confirm the following key value pair was successfully updated by referencing the below data for the inputted key and value:</li>
-                        <ul>
+                        <li>
                             <li>Key: <p id="key_id"></p></li>
                             <li>Value: <p id="value_id"></p></li>
-                        </ul>
+                        </li>
                     <li>This test ensures that key and value pairs aren't hardcoded and will update automatically according to the URL parameters specified. This test was completed successfully.</li>
                 </ol>
 
