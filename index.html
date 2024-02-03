@@ -144,9 +144,11 @@
                     return;
                 }
                     
-                //const endpoint = new URL("https://httpbin.org/get", params)
+                const endpoint = new URL("https://httpbin.org/get",)
+                
+                
                 const get = ( url, params ) => request( url, params, 'GET' );
-                get( 'https://httpbin.org/get', params )
+                get( 'https://httpbin.org/get?key=hello&value=world' )
                 .then(response => {
                     console.log(response)
                 })
