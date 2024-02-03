@@ -27,6 +27,7 @@
 
         <!-- Title -->
         <title>Sashin Tulsiram - Technical Manager Challenge</title>
+        <hr>
     </head>
 
     <body>
@@ -50,7 +51,8 @@
                 <li>A JavaScript client-side script was created to push the key and value variable data to Googles Tag Managers Data Layer.</li>
                 <li>Google Tag Manager was successfully implemented and tested. The applications functionality to push data to the GTM data layer was also tested successfully.</li>
             </ul>        
-
+        <hr>
+        
         <!-- Displays the entered Query String Parameters from the URL -->            
         <h3>2. Testing of Other Query String Parameters</h3>
             <div>
@@ -70,7 +72,8 @@
                     document.getElementById('value_id').textContent = value_var       
                 </script>
             </div>
-
+        <hr>
+        
         <!-- When a user clicks the button, an onclick event is triggered which executes a function - a JavaScript function pulls Query String Parameters from the GTM Data Layer, stores these parameters into variables, Uses SearchParams encode the URL with the provided URL & parameters, send an API GET request using the constructed string, and prints the response to the console -->
         <h3>3. API Implementation</h3>
             <div>
@@ -80,42 +83,72 @@
                         <li>When a user clicks on the button, an onclick event is triggered.</li>
                         <li>A JavaScript function is triggered which was created to pull the key and value data stored in GTMs data layer and stores this data into two separate variables. The function uses URLSearchParams to construct a GET API request using the variable data and provided API endpoint. Data from the API response is formatted in JSON and is logged in the console.</li>
                     </ul>
-                </ul>
-                <script>
-                    function getData(){
-                        window.dataLayer.push(function() {
-                            const key_dataLayer = this.get('key');
-                            const value_dataLayer = this.get('value');
+                </ul>        
+                <button type="button" id="buttonGet" onclick=getData()>Send API Request!</button>
+            </div>
+        <hr>
+        
+        
+        <script>
+            /*
+            function getData(){
+                window.dataLayer.push(function() {
+                    const key_dataLayer = this.get('key');
+                    const value_dataLayer = this.get('value');
 
-                            const params = new URLSearchParams({
-                                key: key_dataLayer,
-                                value: value_dataLayer
-                        });                  
-                        
-                        const request = ( url, params = {}, method = 'GET' ) => {
-                            let options = {method};
-                            if ( 'GET' === method ) {
-                                url += '?' + ( new URLSearchParams( params ) ).toString();
-                            } 
-                            else {
-                                options.body = JSON.stringify( params );
-                            }
-                            return fetch( url, options ).then( response => response.json() );
-                        };
-
-                        const get = ( url, params ) => request( url, params, 'GET' );
-                        get( 'https://httpbin.org/get', params )
-                        .then(response => {
-                            console.log(response)
-                        })
-                        .catch(error => {
-                            console.error(error)
-                        });
-                        })
+                    const params = new URLSearchParams({
+                        key: key_dataLayer,
+                        value: value_dataLayer
+                });                  
+                    
+                const request = ( url, params = {}, method = 'GET' ) => {
+                    let options = {method};
+                    if ( 'GET' === method ) {
+                        url += '?' + ( new URLSearchParams( params ) ).toString();
+                    } 
+                    else {
+                        options.body = JSON.stringify( params );
                     }
-                </script>
+                    return fetch( url, options ).then( response => response.json() );
+                };
 
-                <button type="button" onclick=getData()>Send API Request!</button>
-            </div>        
+                const get = ( url, params ) => request( url, params, 'GET' );
+                get( 'https://httpbin.org/get', params )
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.error(error)
+                });
+                })
+            }
+            */
+
+            async function getData(){
+                window.dataLayer.push(function() {
+                    const key_dataLayer = this.get('key');
+                    const value_dataLayer = this.get('value');
+
+                    const params = new URLSearchParams({
+                        key: key_dataLayer,
+                        value: value_dataLayer
+                })
+
+                if (!key_dataLayer) {
+                    alert("Please enter in a 'key' data.")
+                    return;
+                }
+
+                if (!value_dataLayer) {
+                    alert("Please enter in a 'value' data.")
+                    return;
+                }                
+                    
+                const endpoint = new URL("https://httpbin.org/get")
+                console.log(endpoint);
+                }    
+                )}
+
+        </script>               
     </body>
 </html>
