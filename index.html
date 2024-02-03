@@ -144,10 +144,14 @@
                     return;
                 }
                     
-                const endpoint = new URL("https://httpbin.org/get", params)
-                console.log(endpoint);
-                }    
-                )}
+                //const endpoint = new URL("https://httpbin.org/get", params)
+                const get = ( url, params ) => request( url, params, 'GET' );
+                get( 'https://httpbin.org/get', params )
+                .then(response => {
+                    console.log(response)
+                })
+                }
+            )}
 
         </script>               
     </body>
