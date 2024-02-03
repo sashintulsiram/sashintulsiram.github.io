@@ -43,7 +43,7 @@
             <li>API Implementation</li>            
         </ol>
         <hr>
-        
+
         <h3>1. Google Tag Manager and Query String Parameters</h3>
             <ul>
                 <li>The Google Tag Manager code required for the integration was added to the source code.</li> 
@@ -135,16 +135,16 @@
                 })
 
                 if (!key_dataLayer) {
-                    alert("Please enter in a 'key' data.")
+                    alert("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
                     return;
                 }
 
                 if (!value_dataLayer) {
-                    alert("Please enter in a 'value' data.")
+                    alert("Please enter in a valid URL string or 'value' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
                     return;
-                }                
+                }
                     
-                const endpoint = new URL("https://httpbin.org/get")
+                const endpoint = new URL("https://httpbin.org/get", params)
                 console.log(endpoint);
                 }    
                 )}
