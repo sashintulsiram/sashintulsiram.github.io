@@ -151,12 +151,6 @@
                                 console.log("Invalid Data Entered. Please enter in a valid URL string or 'key' and 'value' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
                                 return;
                             }
-
-                            //if (!value_dataLayer_api) {
-                            //    console.log("Invalid Data Entered. Please enter in a valid URL string or 'value' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
-                            //    return;
-                            //}
-
                             if (key_dataLayer_api && value_dataLayer_api) {
                                 console.log("Valid Data Entered. Constructing API Request.");
                             }                    
@@ -181,8 +175,7 @@
                             .catch(error => {
                                 console.error("Logging error:",error)
                             }); 
-                        });                       
-                        //resolve();
+                        });
                     }, 3000);
                 });
             }
