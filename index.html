@@ -13,7 +13,15 @@
             const urlParams = new URLSearchParams(queryString);
             const page_url = urlParams.get('page_url')
             const key_var = urlParams.get('key')
+            if (key_var === null || ""){
+                alert("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
+                return;
+            }    
             const value_var = urlParams.get('value')
+            if (value_var === null || ""){
+                alert("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
+                return;
+            }            
         </script>
 
         <!-- Script that push Query String Parameters to GTM Data Layer -->
