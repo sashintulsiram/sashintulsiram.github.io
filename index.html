@@ -71,12 +71,6 @@
                     const value_dataLayer = this.get('value');
                     const gtmStart_dataLayer = this.get('gtm.start');
                     const event_dataLayer = this.get('event');
-                    /*const dataLayer_string = JSON.stringify(dataLayer, null, 4);
-                    if (!dataLayer_string) {
-                        const dataLayer_string = "Google Tag Manager DataLayer is unavailable.";
-                    }             
-                    document.getElementById("dataLayer_id").textContent = dataLayer_string;
-                    */
                     document.getElementById("key_dataLayer_id").textContent = key_dataLayer;
                     document.getElementById("value_dataLayer_id").textContent = value_dataLayer;
                     document.getElementById("gtmStart_dataLayer_id").textContent = gtmStart_dataLayer;
@@ -118,12 +112,20 @@
                 </ul>        
                 <button type="button" onclick=getData()>Send API Request!</button>
             </div>
+            <div>
+                <ul>
+                    <li>Google Tag Manager DataLayer: </li>
+                    <ul>
+                        <li>Event: <b id="event_dataLayer_id_api"></b></li>
+                        <li>GTM Start: <b id="gtmStart_dataLayer_id_api"></b></li>
+                        <li>Key: <b id="key_dataLayer_id_api"></b></li>
+                        <li>Value: <b id="value_dataLayer_id_api"></b></li>                    
+                    </ul>                
+                </ul>
+            </div> 
         <hr>
         
-        
         <script>
-
-
             function getDataConstructor() {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -131,6 +133,12 @@
                     window.dataLayer.push(function() {
                         const key_dataLayer = this.get('key');
                         const value_dataLayer = this.get('value');
+                        const gtmStart_dataLayer = this.get('gtm.start');
+                        const event_dataLayer = this.get('event');
+                        document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;
+                        document.getElementById("value_dataLayer_id_api").textContent = value_dataLayer_api;
+                        document.getElementById("gtmStart_dataLayer_id_api").textContent = gtmStart_dataLayer_api;
+                        document.getElementById("event_dataLayer_id_api").textContent = event_dataLayer_api;
 
                         const params = new URLSearchParams({
                             key: key_dataLayer,
@@ -183,7 +191,6 @@
             const result = await getDataConstructor();
             console.log(result);
             }
-
-        </script>               
+        </script>
     </body>
 </html>
