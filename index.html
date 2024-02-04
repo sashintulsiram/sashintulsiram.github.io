@@ -118,7 +118,7 @@
         <script>
 
 
-            function resolveAfter3Seconds() {
+            function resolveAfter30Seconds() {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     /* Get Data from Google Tag Manager DataLayer */
@@ -169,13 +169,13 @@
                 })
 
                 resolve('resolved');
-                }, 3000);
+                }, 30000);
             });
             }
 
             async function getData() {
             console.log('calling');
-            const result = await resolveAfter3Seconds();
+            const result = await resolveAfter30Seconds();
             console.log(result);
             // Expected output: "resolved"
             }
