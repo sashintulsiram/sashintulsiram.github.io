@@ -54,10 +54,9 @@
             </ul>        
 
             <script>
-                const dataLayer_string = JSON.stringify(dataLayer);
+                const dataLayer_string = JSON.stringify(dataLayer, 0, 4);
                 if (!dataLayer_string) {
-                    ("Google Tag Manager DataLayer is unavailable.")
-                    return;
+                    return("Google Tag Manager DataLayer is unavailable.");
                 }                   
                 document.querySelector("dataLayer_class").textContent = dataLayer_string;
             </script>
