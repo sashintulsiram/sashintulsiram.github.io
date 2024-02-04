@@ -154,20 +154,17 @@
                 //const key_dataLayer = dataLayer[1].key;
                 //const value_dataLayer = dataLayer[1].value;
                 
+                /* Get Data from Google Tag Manager DataLayer */
                 window.dataLayer.push(function() {
                     const key_dataLayer = this.get('key');
                     const value_dataLayer = this.get('value');
 
-                    if (key_dataLayer && value_dataLayer) {
-                        alert("API Response Logged To Console.")
-                        return;
-                    }
-                                        
                     const params = new URLSearchParams({
                         key: key_dataLayer,
                         value: value_dataLayer
                 });
 
+                /* Data Validation - Key and Value Data */
                 if (!key_dataLayer) {
                     alert("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
                     return;
@@ -178,6 +175,7 @@
                     return;
                 }
                     
+                /* Construct HTTP GET API Request */
                 const request = ( url, params = {}, method = 'GET' ) => {
                     let options = {method};
                     if ( 'GET' === method ) {
@@ -186,7 +184,7 @@
                     else {
                         options.body = JSON.stringify( params );
                     }
-                    return fetch( url, options ).then( response => response.json() );
+                    return await.fetch( url, options ).then( response => response.json() );
                 };
 
                 const get = ( url, params ) => request( url, params, 'GET' );
