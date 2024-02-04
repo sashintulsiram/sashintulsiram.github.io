@@ -54,12 +54,6 @@
             </ul>        
 
             <script>
-                /*const dataLayer_string = JSON.stringify(dataLayer, null, 4);
-                if (!dataLayer_string) {
-                    const dataLayer_string = "Google Tag Manager DataLayer is unavailable.";
-                }             
-                document.getElementById("dataLayer_id").textContent = dataLayer_string;
-                */
                 window.dataLayer.push(function(){
                     const key_dataLayer = this.get('key');
                     const value_dataLayer = this.get('value');
@@ -69,6 +63,13 @@
                         value: value_dataLayer
                     });
                 })
+                //const dataLayer_string = JSON.stringify(dataLayer, null, 4);
+                if (!dataLayer_string) {
+                    const dataLayer_string = "Google Tag Manager DataLayer is unavailable.";
+                }             
+                document.getElementById("dataLayer_id").textContent = dataLayer_string;
+                
+
             </script>
         <hr>
         
