@@ -127,63 +127,63 @@
         
         <script>
             function getDataConstructor() {
-                return new Promise((resolve) => {
-                    setTimeout(() => {
-                        /* Get Data from Google Tag Manager DataLayer */
-                        window.dataLayer.push(function() {
-                            const key_dataLayer = this.get('key');
-                            const value_dataLayer = this.get('value');
-                            const gtmStart_dataLayer = this.get('gtm.start');
-                            const event_dataLayer = this.get('event');
-                            document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;
-                            document.getElementById("value_dataLayer_id_api").textContent = value_dataLayer_api;
-                            document.getElementById("gtmStart_dataLayer_id_api").textContent = gtmStart_dataLayer_api;
-                            document.getElementById("event_dataLayer_id_api").textContent = event_dataLayer_api;
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    /* Get Data from Google Tag Manager DataLayer */
+                    window.dataLayer.push(function() {
+                        const key_dataLayer = this.get('key');
+                        const value_dataLayer = this.get('value');
+                        const gtmStart_dataLayer = this.get('gtm.start');
+                        const event_dataLayer = this.get('event');
+                        document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;
+                        document.getElementById("value_dataLayer_id_api").textContent = value_dataLayer_api;
+                        document.getElementById("gtmStart_dataLayer_id_api").textContent = gtmStart_dataLayer_api;
+                        document.getElementById("event_dataLayer_id_api").textContent = event_dataLayer_api;
 
-                            const params = new URLSearchParams({
-                                key: key_dataLayer,
-                                value: value_dataLayer
-                        });
+                        const params = new URLSearchParams({
+                            key: key_dataLayer,
+                            value: value_dataLayer
+                    });
 
-                        /* Data Validation - Key and Value Data */
-                        if (!key_dataLayer) {
-                            console.log("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
-                            return;
+                    /* Data Validation - Key and Value Data */
+                    if (!key_dataLayer) {
+                        console.log("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
+                        return;
+                    }
+
+                    if (!value_dataLayer) {
+                        console.log("Invalid Data Entered. Please enter in a valid URL string or 'value' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
+                        return;
+                    }
+
+                    if (key_dataLayer && value_dataLayer) {
+                        console.log("Valid Data Entered. Constructing API Request.");
+                    }                    
+                        
+                    /* Construct HTTP GET API Request */
+                    const request = ( url, params = {}, method = 'GET' ) => {
+                        let options = {method};
+                        if ( 'GET' === method ) {
+                            url += '?' + ( new URLSearchParams( params ) ).toString();
+                        } 
+                        else {
+                            options.body = JSON.stringify( params );
                         }
+                        return fetch( url, options ).then( response => response.json() );
+                    };
 
-                        if (!value_dataLayer) {
-                            console.log("Invalid Data Entered. Please enter in a valid URL string or 'value' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
-                            return;
-                        }
-
-                        if (key_dataLayer && value_dataLayer) {
-                            console.log("Valid Data Entered. Constructing API Request.");
-                        }                    
-                            
-                        /* Construct HTTP GET API Request */
-                        const request = ( url, params = {}, method = 'GET' ) => {
-                            let options = {method};
-                            if ( 'GET' === method ) {
-                                url += '?' + ( new URLSearchParams( params ) ).toString();
-                            } 
-                            else {
-                                options.body = JSON.stringify( params );
-                            }
-                            fetch( url, options ).then( response => response.json() );
-                        };
-
-                        const get = ( url, params ) => request( url, params, 'GET' );
-                        get( 'https://httpbin.org/get', params )
-                        .then(response => {
-                            console.log(response)
-                        })
-                        .catch(error => {
-                            console.error("Logging error:",error)
-                        }); 
-                        resolve('resolved');
-                        }, 3000);
+                    const get = ( url, params ) => request( url, params, 'GET' );
+                    get( 'https://httpbin.org/get', params )
+                    .then(response => {
+                        console.log(response)
                     })
-                });
+                    .catch(error => {
+                        console.error("Logging error:",error)
+                    }); 
+                })
+                resolve('resolved');
+                }, 3000);
+            });
             }
 
             async function getData() {
