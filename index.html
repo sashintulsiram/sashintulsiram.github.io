@@ -184,7 +184,8 @@
                     else {
                         options.body = JSON.stringify( params );
                     }
-                    return await fetch( url, options ).then( response => response.json() );
+                    const response = await fetch( url, options ).then( response => response.json() );
+                    console.log(response)
                 };
 
                 const get = ( url, params ) => request( url, params, 'GET' );
