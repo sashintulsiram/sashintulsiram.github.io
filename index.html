@@ -121,32 +121,6 @@
             function resolveAfter30Seconds() {
             return new Promise((resolve) => {
                 setTimeout(() => {
-                    /* Get Data from Google Tag Manager DataLayer */
-                    window.dataLayer.push(function() {
-                        const key_dataLayer = this.get('key');
-                        const value_dataLayer = this.get('value');
-
-                        const params = new URLSearchParams({
-                            key: key_dataLayer,
-                            value: value_dataLayer
-                    });
-
-                    /* Data Validation - Key and Value Data */
-                    if (!key_dataLayer) {
-                        alert("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
-                        return;
-                    }
-
-                    if (!value_dataLayer) {
-                        alert("Please enter in a valid URL string or 'value' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
-                        return;
-                    }
-
-                    if (key_dataLayer && value_dataLayer) {
-                        alert("Please check console for API Response Output.")
-                        return;
-                    }
-                        
                     /* Construct HTTP GET API Request */
                     const request = ( url, params = {}, method = 'GET' ) => {
                         let options = {method};
@@ -160,22 +134,49 @@
                     };
 
                     const get = ( url, params ) => request( url, params, 'GET' );
-                    get( 'https://httpbin.org/get', params )
-                    .then(response => {
-                        console.log(response)
-                    })
-                    .catch(error => {
-                        console.error("Logging error:",error)
-                    }); 
-                })
+                        get( 'https://httpbin.org/get', params )
+                        .then(response => {
+                            console.log(response)
+                        })
+                        .catch(error => {
+                            console.error("Logging error:",error)
+                        }); 
 
                 resolve('resolved');
                 }, 30000);
             });
             }
 
+
             async function getData() {
             console.log('calling');
+
+            /* Get Data from Google Tag Manager DataLayer */
+            window.dataLayer.push(function() {
+                const key_dataLayer = this.get('key');
+                const value_dataLayer = this.get('value');
+
+                const params = new URLSearchParams({
+                    key: key_dataLayer,
+                    value: value_dataLayer
+                });
+
+                /* Data Validation - Key and Value Data */
+                if (!key_dataLayer) {
+                    alert("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
+                    return;
+                }
+
+                if (!value_dataLayer) {
+                    alert("Please enter in a valid URL string or 'value' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
+                    return;
+                }
+
+                if (key_dataLayer && value_dataLayer) {
+                    alert("Please check console for API Response Output.")
+                    return;
+                }          
+            })
             const result = await resolveAfter30Seconds();
             console.log(result);
             // Expected output: "resolved"
