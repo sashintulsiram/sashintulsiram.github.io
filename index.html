@@ -23,7 +23,6 @@
                 'key': key_var,
                 'value': value_var
             });
-            console.log(dataLayer)
         </script>
 
         <!-- Title -->
@@ -55,9 +54,8 @@
             </ul>        
 
             <script>
-                const array = [1, 2, 3, 4, 5];
-                const string = JSON.stringify(dataLayer, null, 4);   
-                document.querySelector(".output").innerHTML = string;
+                const dataLayer_string = JSON.stringify(dataLayer);   
+                document.querySelector(".output").innerHTML = dataLayer_string;
             </script>
         <hr>
         
