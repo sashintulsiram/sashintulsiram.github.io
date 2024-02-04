@@ -50,12 +50,16 @@
                 <li>A JavaScript client-side script was created to read the entered URL and dynamically assign the inputted key value data into their own separate variables. This function uses URLSearchParams to read and decode the URL to create the key and value variables.</li>
                 <li>A JavaScript client-side script was created to push the key and value variable data to Googles Tag Managers Data Layer.</li>
                 <li>Google Tag Manager was successfully implemented and tested. The applications functionality to push data to the GTM data layer was also tested successfully.</li>
-                <li>Google Tag Manager DataLayer: <pre class="output"></pre></li>
+                <li>Google Tag Manager DataLayer: <pre class="dataLayer_class"></pre></li>
             </ul>        
 
             <script>
-                const dataLayer_string = JSON.stringify(dataLayer);   
-                document.querySelector(".output").textContent = dataLayer_string;
+                const dataLayer_string = JSON.stringify(dataLayer);
+                if (!dataLayer_string) {
+                    ("Google Tag Manager DataLayer is unavailable.")
+                    return;
+                }                   
+                document.querySelector("dataLayer_class").textContent = dataLayer_string;
             </script>
         <hr>
         
