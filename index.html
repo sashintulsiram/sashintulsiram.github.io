@@ -163,6 +163,10 @@
                         value: value_dataLayer
                 });
 
+                if (key_dataLayer && value_dataLayer) {
+                    alert("API Response Logged To Console.")
+                    return;
+                }
                 if (!key_dataLayer) {
                     alert("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
                     return;
