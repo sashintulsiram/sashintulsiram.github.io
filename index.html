@@ -182,13 +182,13 @@
                                 console.error("Logging error:",error)
                             }); 
                         });                       
-                        resolve("Executing API Request.");
+                        resolve();
                     }, 3000);
                 });
             }
 
             async function getData() {
-                console.log("Constructing API Request.")
+                console.log("Starting API Request.")
                 const result = await getDataConstructor();
                 console.log(result);
             }
