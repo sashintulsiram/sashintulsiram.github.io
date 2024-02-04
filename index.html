@@ -135,11 +135,11 @@
                             const value_dataLayer = this.get('value');
                             const gtmStart_dataLayer = this.get('gtm.start');
                             const event_dataLayer = this.get('event');
-                            document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;
-                            document.getElementById("value_dataLayer_id_api").textContent = value_dataLayer_api;
-                            document.getElementById("gtmStart_dataLayer_id_api").textContent = gtmStart_dataLayer_api;
-                            document.getElementById("event_dataLayer_id_api").textContent = event_dataLayer_api;
-
+                            //document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;
+                            //document.getElementById("value_dataLayer_id_api").textContent = value_dataLayer_api;
+                            //document.getElementById("gtmStart_dataLayer_id_api").textContent = gtmStart_dataLayer_api;
+                            //document.getElementById("event_dataLayer_id_api").textContent = event_dataLayer_api;
+                            console.log(event_dataLayer,gtmStart_dataLayer,key_dataLayer)
                             const params = new URLSearchParams({
                                 key: key_dataLayer,
                                 value: value_dataLayer
@@ -181,7 +181,7 @@
                                 console.error("Logging error:",error)
                             }); 
                         });
-                        resolve();
+                        resolve('resolved');
                     }, 3000);
                 });
             }
