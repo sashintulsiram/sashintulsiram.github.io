@@ -61,8 +61,8 @@
 
             <script>
                 window.dataLayer.push(function() {
-                    var key_dataLayer = this.get('key');
-                    var value_dataLayer = this.get('value');
+                    const key_dataLayer = this.get('key');
+                    const value_dataLayer = this.get('value');
                     const gtmStart_dataLayer = this.get('gtm.start');
                     const event_dataLayer = this.get('event');
                     /*const dataLayer_string = JSON.stringify(dataLayer, null, 4);
@@ -154,9 +154,13 @@
                 //const key_dataLayer = dataLayer[1].key;
                 //const value_dataLayer = dataLayer[1].value;
                 
-                const params = new URLSearchParams({
-                    key: key_dataLayer,
-                    value: value_dataLayer
+                window.dataLayer.push(function() {
+                    const key_dataLayer = this.get('key');
+                    const value_dataLayer = this.get('value');
+
+                    const params = new URLSearchParams({
+                        key: key_dataLayer,
+                        value: value_dataLayer
                 });
 
                 if (!key_dataLayer) {
@@ -187,7 +191,8 @@
                 })
                 .catch(error => {
                     console.error("Logging error:",error)
-                });            
+                }); 
+            })           
             }
         
 
