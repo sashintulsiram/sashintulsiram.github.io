@@ -131,10 +131,10 @@
                     setTimeout(() => {
                         /* Get Data from Google Tag Manager DataLayer */
                         window.dataLayer.push(function() {
-                            const key_dataLayer = this.get("key");
-                            const value_dataLayer = this.get("value");
-                            const gtmStart_dataLayer = this.get("gtm.start");
-                            const event_dataLayer = this.get("event");
+                            const key_dataLayer_api = this.get("key");
+                            const value_dataLayer_api = this.get("value");
+                            const gtmStart_dataLayer_api = this.get("gtm.start");
+                            const event_dataLayer_api = this.get("event");
                             
                             //document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;
                             //document.getElementById("value_dataLayer_id_api").textContent = value_dataLayer_api;
@@ -142,22 +142,22 @@
                             //document.getElementById("event_dataLayer_id_api").textContent = event_dataLayer_api;
 
                             const params = new URLSearchParams({
-                                key: key_dataLayer,
-                                value: value_dataLayer
+                                key: key_dataLayer_api,
+                                value: value_dataLayer_api
                             });
 
                             /* Data Validation - Key and Value Data */
-                            if (!key_dataLayer) {
+                            if (!key_dataLayer_api) {
                                 console.log("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
                                 return;
                             }
 
-                            if (!value_dataLayer) {
+                            if (!value_dataLayer_api) {
                                 console.log("Invalid Data Entered. Please enter in a valid URL string or 'value' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
                                 return;
                             }
 
-                            if (key_dataLayer && value_dataLayer) {
+                            if (key_dataLayer_api && value_dataLayer_api) {
                                 console.log("Valid Data Entered. Constructing API Request.");
                             }                    
                                 
