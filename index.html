@@ -133,18 +133,11 @@
 
                     /* Data Validation - Key and Value Data */
                     if (!key_dataLayer) {
-                        alert("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
-                        return;
+                        console.log("Please enter in a valid URL string or 'key' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
                     }
 
                     if (!value_dataLayer) {
-                        alert("Please enter in a valid URL string or 'value' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
-                        return;
-                    }
-
-                    if (key_dataLayer && value_dataLayer) {
-                        alert("Please check console for API Response Output.")
-                        return;
+                        console.log("Please enter in a valid URL string or 'value' data. E.G. https://sashintulsiram.github.io/?key=hello&value=world");
                     }
                         
                     /* Construct HTTP GET API Request */
