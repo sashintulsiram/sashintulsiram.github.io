@@ -182,14 +182,14 @@
                                 console.error("Logging error:",error)
                             }); 
                         });
-                        resolve("Executed API Request.");
+                        document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;                        
+                        resolve("Executing API Request.");
                     }, 3000);
-                    document.getElementById("key_dataLayer_id_api").textContent = key_dataLayer_api;                    
                 });
             }
 
             async function getData() {
-                console.log("Executing API Request.")
+                console.log("Constructing API Request.")
                 const result = await getDataConstructor();
                 console.log(result);
             }
