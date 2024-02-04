@@ -13,6 +13,7 @@
             const urlParams = new URLSearchParams(queryString);
             const page_url = urlParams.get('page_url')
             const key_var = urlParams.get('key')
+            console.log(key_var)
             if (key_var === null || ""){
                 alert("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
                 return;
