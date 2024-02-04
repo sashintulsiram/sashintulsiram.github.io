@@ -125,13 +125,13 @@
             */
 
             async function getData(){
-                window.dataLayer.push(function() {
-                    const key_dataLayer = this.get('key');
-                    const value_dataLayer = this.get('value');
+                //window.dataLayer.push(function() {
+                    //const key_dataLayer = this.get('key');
+                    //const value_dataLayer = this.get('value');
 
-                    const params = new URLSearchParams({
-                        key: key_dataLayer,
-                        value: value_dataLayer
+                const params = new URLSearchParams({
+                    key: key_dataLayer,
+                    value: value_dataLayer
                 })
 
                 if (!key_dataLayer) {
@@ -164,7 +164,7 @@
                     console.error("Logging error:",error)
                 });                
                 }
-            )}
+            
 
         </script>               
     </body>
