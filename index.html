@@ -54,22 +54,11 @@
             </ul>        
 
             <script>
-                window.dataLayer.push(function(){
-                    const key_dataLayer = this.get('key');
-                    const value_dataLayer = this.get('value');
-
-                    const params = new URLSearchParams({
-                        key: key_dataLayer,
-                        value: value_dataLayer
-                    });
-                })
-                //const dataLayer_string = JSON.stringify(dataLayer, null, 4);
+                const dataLayer_string = JSON.stringify(dataLayer, null, 4);
                 if (!dataLayer_string) {
                     const dataLayer_string = "Google Tag Manager DataLayer is unavailable.";
                 }             
                 document.getElementById("dataLayer_id").textContent = dataLayer_string;
-                
-
             </script>
         <hr>
         
@@ -145,10 +134,13 @@
             */
 
             async function getData(){
-                const key_dataLayer = dataLayer[1].key;
-                const value_dataLayer = dataLayer[1].value;
+                //const key_dataLayer = dataLayer[1].key;
+                //const value_dataLayer = dataLayer[1].value;
+                window.dataLayer.push(function() {
+                    const key_dataLayer = this.get('key');
+                    const value_dataLayer = this.get('value');
 
-                const params = new URLSearchParams({
+                    const params = new URLSearchParams({
                     key: key_dataLayer,
                     value: value_dataLayer
                 })
@@ -181,7 +173,8 @@
                 })
                 .catch(error => {
                     console.error("Logging error:",error)
-                });                
+                });
+            })                
             }
         
 
