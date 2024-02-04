@@ -118,7 +118,7 @@
         <script>
 
 
-            function resolveAfter3Seconds() {
+            function resolveAfter30Seconds() {
             return new Promise((resolve) => {
                 setTimeout(() => {
                     /* Get Data from Google Tag Manager DataLayer */
@@ -142,7 +142,10 @@
                         return;
                     }
 
-                    
+                    if (key_dataLayer && value_dataLayer) {
+                        alert("Please check console for API Response Output.")
+                        return;
+                    }
                         
                     /* Construct HTTP GET API Request */
                     const request = ( url, params = {}, method = 'GET' ) => {
@@ -167,7 +170,7 @@
                 })
 
                 resolve('resolved');
-                }, 3000);
+                }, 30000);
             });
             }
 
