@@ -9,7 +9,7 @@
 
         <!-- Script that queries and stores the URL. Uses SearchParams reads and decode the URL to create objects (URL, parameters) -->
         <script>
-            const queryString = encodeURI(window.location.search);
+            const queryString = decodeURI(window.location.search);
             const urlParams = new URLSearchParams(queryString);
             const page_url = urlParams.get("page_url")
             const key_var = urlParams.get("key")
@@ -128,7 +128,7 @@
         <script>
             function getDataConstructor() {
                 return new Promise((resolve) => {
-                    setTimeout(() => {
+                    setInterval(() => {
                         /* Get Data from Google Tag Manager DataLayer */
                         window.dataLayer.push(function() {
                             const key_dataLayer_api = this.get("key");
