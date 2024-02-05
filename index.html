@@ -128,7 +128,7 @@
         <script>
             function getDataConstructor() {
                 return new Promise((resolve) => {
-                    setInterval(() => {
+                    setTimeout(() => {
                         /* Get Data from Google Tag Manager DataLayer */
                         window.dataLayer.push(function() {
                             const key_dataLayer_api = this.get("key");
@@ -182,7 +182,7 @@
                                 console.error("Logging error:",error)
                             }); 
                         });
-                    }, 3000);
+                    }, 1000);
                 });
             }
 
