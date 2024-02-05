@@ -9,14 +9,23 @@
 
         <!-- Script that queries and stores the URL. Uses SearchParams reads and decode the URL to create objects (URL, parameters) -->
         <script>
+
+
+            const url = "https://www.google.com/search?q=geeks for geeks";
+            const encodedURL = encodeURI(url);
+            console.log(encodedURL)
+            console.log(escape(url));
+            console.log(decodeURI(encodedURL));
+            console.log(unescape(encodedURL));
+
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const page_url = urlParams.get("page_url")
-            const key_var = urlParams.get.toString("key")
+            const key_var = urlParams.get("key")
             if (!key_var){
                 alert("Invalid Data Entered. Please enter in a valid URL string or 'key' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
             }    
-            const value_var = urlParams.get.toString("value")
+            const value_var = urlParams.get("value")
             if (!value_var){
                 alert("Invalid Data Entered. Please enter in a valid URL string or 'value' data and try again!. E.G. https://sashintulsiram.github.io/?key=hello&value=world")
             }            
