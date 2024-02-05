@@ -9,15 +9,6 @@
 
         <!-- Script that queries and stores the URL. Uses SearchParams reads and decode the URL to create objects (URL, parameters) -->
         <script>
-
-
-            const url = "https://www.google.com/search?q=geeks for geeks";
-            const encodedURL = encodeURI(url);
-            console.log(encodedURL)
-            console.log(escape(url));
-            console.log(decodeURI(encodedURL));
-            console.log(unescape(encodedURL));
-
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
             const page_url = urlParams.get("page_url")
